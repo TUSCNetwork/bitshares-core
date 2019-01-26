@@ -42,13 +42,15 @@ namespace bpo = boost::program_options;
 void new_chain_banner( const graphene::chain::database& db )
 {
    ilog("\n"
-      "********************************\n"
-      "*                              *\n"
-      "*   ------- NEW CHAIN ------   *\n"
-      "*   - Welcome to Graphene! -   *\n"
-      "*   ------------------------   *\n"
-      "*                              *\n"
-      "********************************\n"
+      "*********************************\n"
+      "*                               *\n"
+      "*   ------- NEW CHAIN -------   *\n"
+      "*   ---- Welcome to TUSC! ---   *\n"
+      "* The Universal Settlement Coin *\n"
+      "*    - Powered by Graphene -    *\n"
+      "*   -------------------------   *\n"
+      "*                               *\n"
+      "*********************************\n"
       "\n");
    if( db.get_slot_at_time( fc::time_point::now() ) > 200 )
    {
