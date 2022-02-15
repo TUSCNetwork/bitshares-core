@@ -130,6 +130,7 @@ void application_impl::reset_p2p_node(const fc::path& data_dir)
    {
       auto seeds = _options->at("seed-node").as<vector<string>>();
       _p2p_network->add_seed_nodes(seeds);
+      ilog("P2p seed nodes ${seeds}", ("seeds", seeds));
    }
 
    if( _options->count("seed-nodes") )
@@ -137,6 +138,7 @@ void application_impl::reset_p2p_node(const fc::path& data_dir)
       auto seeds_str = _options->at("seed-nodes").as<string>();
       auto seeds = fc::json::from_string(seeds_str).as<vector<string>>(2);
       _p2p_network->add_seed_nodes(seeds);
+      ilog("P2p seed nodes ${seeds}", ("seeds", seeds));
    }
    else
    {
@@ -144,7 +146,9 @@ void application_impl::reset_p2p_node(const fc::path& data_dir)
       vector<string> seeds = {
       };
       _p2p_network->add_seed_nodes(seeds);
+      ilog("P2p seed nodes ${seeds}", ("seeds", seeds));
    }
+   
 
    if( _options->count("p2p-endpoint") )
       _p2p_network->listen_on_endpoint(fc::ip::endpoint::from_string(_options->at("p2p-endpoint").as<string>()), true);
